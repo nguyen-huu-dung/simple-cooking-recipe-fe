@@ -15,7 +15,7 @@ export default class CookingRecipeStore extends BaseStore {
     cookingRecipeMakeWays: CookingRecipeSecondaryData[] = [];
     cookingRecipe: CookingRecipe | undefined;
     cookingRecipes: CookingRecipe[] | undefined;
-    recomendCookingRecipes: CookingRecipe[] | undefined;
+    recommendCookingRecipes: CookingRecipe[] | undefined;
 
     // paging for home page
     defaultPagingCookingRecipesHome: TableState = {
@@ -47,7 +47,7 @@ export default class CookingRecipeStore extends BaseStore {
             cookingRecipeMakeWays: observable,
             cookingRecipe: observable,
             cookingRecipes: observable,
-            recomendCookingRecipes: observable,
+            recommendCookingRecipes: observable,
             totalCookingRecipes: observable,
             keySearch: observable,
             filterSearch: observable,
@@ -169,7 +169,7 @@ export default class CookingRecipeStore extends BaseStore {
             };
             const res: ResponseData<ListCookingRecipePostResponse> = yield this.rootStore.apiStore.call(this.api, this.api.getListCookingRecipe, payload);
             if (res.ok) {
-                this.recomendCookingRecipes = res.data.elements ?? [];
+                this.recommendCookingRecipes = res.data.elements ?? [];
             }
         } catch (error) {
         }

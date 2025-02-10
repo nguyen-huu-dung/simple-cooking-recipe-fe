@@ -11,6 +11,7 @@ import { Link } from 'react-router';
 import { ClockIcon, CookingPotIcon, MoveRightIcon } from 'lucide-react';
 import { convertMinutesToHours } from '@/utils/datetime';
 import { useTranslation } from 'react-i18next';
+import { Skeleton } from '@/components/common/Skeleton';
 
 export default observer(function RecommendCookingRecipe() {
     // hooks
@@ -18,7 +19,7 @@ export default observer(function RecommendCookingRecipe() {
 
     // store
     const {
-        cookingRecipeStore: { recomendCookingRecipes, getRecommendListCookingRecipe }
+        cookingRecipeStore: { recommendCookingRecipes, getRecommendListCookingRecipe }
     } = useStore();
 
     // state
@@ -42,7 +43,9 @@ export default observer(function RecommendCookingRecipe() {
         });
     }, [api]);
 
-    if (!recomendCookingRecipes?.length) return <></>;
+    if (recommendCookingRecipes === undefined) return <Skeleton className='max-sm:h-[20rem] h-[28rem]' />;
+
+    if (!recommendCookingRecipes.length) return <></>;
 
     return (
         <WrapperSection className='p-0'>
@@ -58,7 +61,7 @@ export default observer(function RecommendCookingRecipe() {
             >
                 <CarouselContent>
                     {
-                        recomendCookingRecipes.map((cookingRecipe, index) => (
+                        recommendCookingRecipes.map((cookingRecipe, index) => (
                             <CarouselItem key={cookingRecipe.code}>
                                 <Link to={`/cooking-recipe/${cookingRecipe.slug}`}>
                                     <div className={cn(
@@ -110,7 +113,7 @@ export default observer(function RecommendCookingRecipe() {
                 </CarouselContent>
                 <div className='absolute bottom-2 left-0 right-0 flex justify-center gap-2'>
                     {
-                        Array.from({ length: recomendCookingRecipes.length }).map((_, index) => (
+                        Array.from({ length: recommendCookingRecipes.length }).map((_, index) => (
                             <Button
                                 key={index}
                                 onClick={() => api?.scrollTo(index)}
