@@ -1,0 +1,65 @@
+@use "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @each $property, $color in variables.$base-colors-normal {
+      #{$property}: $color;
+    }
+  }
+
+  .dark {
+    @each $property, $color in variables.$base-colors-dark {
+      #{$property}: $color;
+    }
+  }
+
+  * {
+    @apply m-0 p-0 box-border break-words break-word-legacy;
+  }
+
+  body {
+    @apply bg-background text-foreground text-sm;
+  }
+
+  // #region Scroll
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-inherit rounded-lg;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-lg;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+
+  // #endregion
+
+  // #region reset auto fill
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+
+  // #endregion
+}

@@ -1,0 +1,71 @@
+@tailwind components;
+
+// #region Toastify
+.Toastify__toast-container:has(> .toastify-position-center-center) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    max-width: 310px;
+}
+
+// #endregion
+
+@layer components {
+
+    // #region Title
+
+    .title-primary {
+        @apply text-primary text-xl font-semibold;
+    }
+
+    // #endregion
+
+    // #region Icon
+
+    .icon-right-input {
+        @apply absolute right-3 top-1/2 -translate-y-1/2 hover:cursor-pointer;
+    }
+
+    // #endregion
+
+    // #region Detect auto fill
+
+    .detect-autofill {
+        input:is(:-webkit-autofill, :autofill)+label {
+            @apply top-2 -translate-y-0 scale-75;
+        }
+    }
+
+    // #endregion
+
+    // #region Form group control
+
+    .form-control-group {
+        &.form-control-group-invalid {
+            .form-control-group-child {
+                @apply border-destructive;
+            }
+        }
+    }
+
+    // #endregion
+
+    // #region Scrollbar
+
+    @for $i from 1 through 10 {
+        .scrollbar-width-#{$i} {
+            &::-webkit-scrollbar {
+                width: #{$i}px;
+            }
+        }
+
+        .scrollbar-height-#{$i} {
+            &::-webkit-scrollbar {
+                height: #{$i}px;
+            }
+        }
+    }
+
+    // #endregion
+}
