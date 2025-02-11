@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router';
 import { useState } from 'react';
 import { SearchIcon } from 'lucide-react';
 import { ROUTES } from '@/configs/constants';
-import { cn } from '@/utils/utils';
+import { cn, scrollToTop } from '@/utils/utils';
 import { useStore } from '@/hooks/useStore';
 
 interface SearchInputProps {
@@ -42,6 +42,7 @@ export default function SearchInput({
     };
 
     const onHandleSearch = () => {
+        scrollToTop();
         if (searchValue === keySearch) {
             navigate(0);
         } else {

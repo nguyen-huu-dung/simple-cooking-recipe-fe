@@ -1,5 +1,5 @@
 import './services/i18n';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LoadingApi from './components/loading/LoadingApi';
@@ -7,6 +7,7 @@ import Modals from './components/modal/Modals';
 import { ToastContainer } from 'react-toastify';
 import { useStore } from './hooks/useStore';
 import { observer } from 'mobx-react-lite';
+import { scrollToTop } from './utils/utils';
 
 import '/node_modules/flag-icons/css/flag-icons.min.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,6 +16,7 @@ import './styles/App.scss';
 export default observer(function App() {
     // hooks
     const { i18n } = useTranslation();
+    const location = useLocation();
 
     // store
     const {
@@ -38,6 +40,10 @@ export default observer(function App() {
     useEffect(() => {
         !!token && getProfile();
     }, [token]);
+
+    useEffect(() => {
+        scrollToTop();
+    }, [location.pathname]);
 
     // function
     const handleLanguageChange = (lng: string) => {
