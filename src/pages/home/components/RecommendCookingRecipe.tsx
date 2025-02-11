@@ -56,7 +56,7 @@ export default observer(function RecommendCookingRecipe() {
                     loop: true
                 }}
                 plugins={[
-                    Autoplay({ playOnInit: false, delay: 3000 })
+                    Autoplay({ playOnInit: true, delay: 3000 })
                 ]}
             >
                 <CarouselContent>
