@@ -284,7 +284,11 @@ export default observer(function FiltercookingRecipe() {
                             <Button
                                 variant='outline'
                                 type='button'
-                                onClick={() => form.reset()}
+                                onClick={() => form.reset({
+                                    menus: [],
+                                    typeDishs: [],
+                                    makeWays: []
+                                })}
                                 className='min-w-32'
                             >
                                 {t('words_title.reset')}
