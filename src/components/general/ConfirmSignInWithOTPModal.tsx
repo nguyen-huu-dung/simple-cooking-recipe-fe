@@ -8,7 +8,6 @@ import { InputOTP, InputOTPSlot } from '../common/Input';
 import { flowResult } from 'mobx';
 import { useStore } from '@/hooks/useStore';
 import { toastify } from '../common/Toastify';
-import { ONLY_NUMBER_REGEX } from '@/configs/constants';
 import { REGEXP_ONLY_DIGITS } from 'input-otp';
 
 interface ConfirmSignInWithOTPModalProps {

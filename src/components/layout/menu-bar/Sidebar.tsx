@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import { cn } from '@/utils/utils';
-import { useTranslation } from 'react-i18next';
 import { useStore } from '@/hooks/useStore';
 import SidebarToggle from './_components/SidebarToggle';
 import { Button } from '@/components/common/Button';
@@ -10,9 +9,6 @@ import Menu from './_components/Menu';
 import Logo from '@/assets/images/logo.png';
 
 export default observer(function SideBar() {
-    // hooks
-    const { t } = useTranslation();
-
     // store
     const {
         uiStore: { isOpenSidebar }

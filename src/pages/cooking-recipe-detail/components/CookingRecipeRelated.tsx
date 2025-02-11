@@ -37,7 +37,7 @@ export default observer(function CookingRecipeRelated({
                     pageSize: 6
                 },
                 sorting: [{
-                    id: COOKING_RECIPE_SORT_OPTIONS[1].sortKey,
+                    id: COOKING_RECIPE_SORT_OPTIONS[1].id,
                     desc: true
                 }]
             } as TableState);

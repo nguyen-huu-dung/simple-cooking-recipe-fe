@@ -102,7 +102,7 @@ function ReactDayPicker({
                     });
                 },
                 formatCaption: (date, options) => {
-                    return format(date, DISPLAY_FNS_DATE_YM[options?.locale?.code ?? LANGUAGES_SUPPORTED.English]);
+                    return format(date, DISPLAY_FNS_DATE_YM[options?.locale?.code ?? LANGUAGES_SUPPORTED.Vietnamese]);
                 }
             }}
             {...props}

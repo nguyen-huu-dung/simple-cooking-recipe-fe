@@ -50,7 +50,7 @@ export default function SortCookingRecipe() {
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56'>
                 {
-                    Object.values(COOKING_RECIPE_SORT_OPTIONS).map((item, index) => {
+                    Object.values(COOKING_RECIPE_SORT_OPTIONS).map((item) => {
                         return (
                             <DropdownMenuCheckboxItem
                                 key={item.id}

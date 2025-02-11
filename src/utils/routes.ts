@@ -1,5 +1,5 @@
 import { ROUTES } from '@/configs/constants';
-import { GroupMenu, Route } from '@/types/routes';
+import { GroupMenu } from '@/types/routes';
 import { CookingPotIcon, InfoIcon } from 'lucide-react';
 
 // #region Title Page

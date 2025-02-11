@@ -41,7 +41,7 @@ export default function Calendar({
     // hooks
     const { i18n: { language } } = useTranslation();
     const localeDateFns = getLocaleDateFns(language);
-    const useFormatDate = formatDate ?? DISPLAY_FNS_DATE_YMD[language] ?? DISPLAY_FNS_DATE_YMD.en;
+    const useFormatDate = formatDate ?? DISPLAY_FNS_DATE_YMD[language] ?? DISPLAY_FNS_DATE_YMD.vi;
 
     // state
     const [openCalendar, setOpenCalendar] = React.useState<boolean>(false);

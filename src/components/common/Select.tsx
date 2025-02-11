@@ -11,7 +11,7 @@ const Select = React.forwardRef<
     React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root> & {
         className?: string
     }
->(({ children, className, ...props }, ref) => (
+>(({ children, className, ...props }) => (
     <div className={className}>
         <SelectPrimitive.Root {...props}>
             {children}
