@@ -6,10 +6,11 @@ import { Label } from '@/components/common/Label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/common/Select';
 import { toastify } from '@/components/common/Toastify';
 import WrapperSection from '@/components/layout/WrapperSection';
-import { GENDER_MAPPER, MAX_LENGTH_DEFAULT } from '@/configs/constants';
+import { GENDER_MAPPER, MAX_LENGTH_DEFAULT, SUBMIT_MOMENT_DATE_YMD } from '@/configs/constants';
 import { useStore } from '@/hooks/useStore';
 import yup from '@/services/yup';
 import { GENDER } from '@/types/enums';
+import { formatDateTime } from '@/utils/datetime';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { flowResult } from 'mobx';
 import { observer } from 'mobx-react-lite';
@@ -173,7 +174,7 @@ export default observer(function Profile() {
                                                 mode='single'
                                                 selected={field.value ? new Date(field.value) : undefined}
                                                 onSelect={(value) => {
-                                                    field.onChange(value ? value.toString() : '');
+                                                    field.onChange(value ? formatDateTime(value.toString(), SUBMIT_MOMENT_DATE_YMD) : '');
                                                 }}
                                                 inputClassName='w-full'
                                                 disabled={{
